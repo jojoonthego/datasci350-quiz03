@@ -54,16 +54,46 @@ The model admitted 1 time to not knowing.
 
 # Q6
 
-git add 
+git add ollama/ commands.txt
+git commit -m "Add commentator chatbot"
+git push
 
 # Q7
-Commands (2x: )
+Commands (2x): 
 python3 ollama/ask_local.py
-(1) Output: 
-(2) Output: 
+(1) Output: The command `git commit` is used to commit changes made to a Git repository. It creates a commit message and adds the changes to the Git history.
+CompletionUsage(completion_tokens=32, prompt_tokens=36, total_tokens=68, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetails(audio_tokens=None, cache_write_tokens=None, cached_tokens=0, image_tokens=None, text_tokens=None))
+(2) Output: Sports fans, what does git commit do?
+CompletionUsage(completion_tokens=10, prompt_tokens=84, total_tokens=94, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetails(audio_tokens=None, cache_write_tokens=None, cached_tokens=73, image_tokens=None, text_tokens=None))
 
-commentator uses 
+Answer: commentator uses more prompt tokens because the model also took information from the Modelfile (System, Persona) that I set up earlier. 
 
+# Q8 
+Commands (2x):
+python3 ollama/ask_json.py
+
+(1) Output: {"answer": "git commit creates a commit in a version control system like
+length
+Traceback (most recent call last):
+  File "/Users/yao/Desktop/datasci350/datasci350-quiz03/ollama/ask_json.py", line 18, in <module>
+    print(json.loads(reply)["answer"])
+          ~~~~~~~~~~^^^^^^^
+  File "/opt/anaconda3/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/anaconda3/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.14/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 12 (char 11)
+(2) Output: {"answer": "git commit creates a commit in a version control system like Git.", "confidence": 0.9}
+stop
+git commit creates a commit in a version control system like Git.
+Answer: The initial script failed because in line 1, column 12, there is an incomplete line, and the answer got completely cut off due to only 15 tokens being the cutoff. 
+
+# Activity 3
 AI Disclosure: 
 I used AI to troubleshoot why my Modelfile was in Python and showing errors when I created the model, and I realized I needed to change the mode from Python to Plain text. 
 I also used AI to try to speed up the downloading of the granite model, which unfortunately did not help and required assistance of Danilo. 
