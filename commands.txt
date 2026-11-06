@@ -133,10 +133,16 @@ scp -i '/Users/yao/Desktop/datasci350/datasci350-quiz03/datasci350 key pair.pem'
 Answer: You still pay for the running t3.micro - if your t3.micro is still left on after the fact, you will end up paying money (about $12 for 1 month). 
 The instance was terminated. 
 
-git add 
-git commit "Add AWS analysis results & finish quiz"
+git add . 
+git commit -m "Add AWS analysis results & finish quiz"
 git push
 
 AI Disclosure: 
-I used ChatGPT to try to look up ways to speed up the downloading of the granite model, which unfortunately did not help and required assistance of Danilo. 
+Overall: I used ChatGPT to try to look up ways to speed up the downloading of the granite model, which unfortunately did not help and required assistance of Danilo. 
 I used ChatGPT to troubleshoot why my Modelfile was in Python and showing errors when I created the model, and I realized I needed to change the mode from Python to Plain text. 
+My prompt was: "How can I speed up the granite4 download model on my computer? so it goes up faster?" 
+
+Q14: I tried to use ChatGPT to troubleshoot why my prompt wasn't working and seeing if there were errors in my path, and ChatGPT was attempting to advise me. However, I realized I was working from the entirely wrong terminal/instance. 
+My prompt was: "scp -i '/Users/yao/Desktop/datasci350/datasci350-quiz03/datasci350 key pair.pem' ubuntu@ec2-3-128-181-209.us-east-2.compute.amazonaws.com:~/results.txt ubuntu@ec2-3-128-181-209.us-east-2.compute.amazonaws.com:~/fingerprint.txt ubuntu@ec2-3-128-181-209.us-east-2.compute.amazonaws.com:~/traffic_analysis.png aws/ is there anything wrong with the way I wrote this?" 
+
+Ultimately, all codes were run by myself in my terminal! 
