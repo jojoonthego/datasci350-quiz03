@@ -16,7 +16,7 @@ NAME             ID              SIZE      MODIFIED
 granite4:350m    5eee845b49c4    708 MB    24 seconds ago    
 llama3.2:1b      baf6a787fdff    1.3 GB    20 hours ago  
 
-Answer: Granite is 708MB, so we can use the formula (parameters * bits) / 8 bytes. The calculation is (350,000,000*16)/8, which is about 700 MB as an estimate. 
+Answer: We can use the formula (parameters * bits) / 8 bytes. The calculation is (350,000,000*16)/8, which is about 700 MB as an estimate. 
 
 # Q2
 Commands: 
@@ -53,7 +53,7 @@ ollama run commentator "What is the weather in Atlanta right now?"
 The model admitted 1 time to not knowing. 
 
 # Q6
-
+Commands: 
 git add ollama/ commands.txt
 git commit -m "Add commentator chatbot"
 git push
@@ -93,7 +93,50 @@ stop
 git commit creates a commit in a version control system like Git.
 Answer: The initial script failed because in line 1, column 12, there is an incomplete line, and the answer got completely cut off due to only 15 tokens being the cutoff. 
 
+Commands to push: 
+git add ollama/ commands.txt
+git commit -m "Add Python calls"
+git push
+
 # Activity 3
+
+# Q9
+Instance was launched. 
+
+# Q10
+Commands: 
+chmod 400 "datasci350 key pair.pem"
+ssh -i "datasci350 key pair.pem" ubuntu@ec2-3-128-181-209.us-east-2.compute.amazonaws.com
+
+Prompt line: ubuntu@ip-172-31-20-220:~$ 
+
+# Q11
+Commands: 
+sudo apt update
+sudo apt install -y python3-pandas python3-matplotlib python3-seaborn
+
+# Q12
+Commands: 
+scp -i '/Users/yao/Desktop/datasci350/datasci350-quiz03/datasci350 key pair.pem' aws/traffic_analysis.py aws/website_traffic.txt ubuntu@ec2-3-128-181-209.us-east-2.compute.amazonaws.com:~/
+
+# Q13
+Commands: 
+python3 traffic_analysis.py > results.txt
+cat /var/lib/cloud/data/instance-id >> results.txt
+sha256sum results.txt > fingerprint.txt
+
+# Q14
+Commands (create the path from the instance, so I need to keep the whole Ubuntu path into the AWS folder): 
+scp -i '/Users/yao/Desktop/datasci350/datasci350-quiz03/datasci350 key pair.pem' ubuntu@ec2-3-128-181-209.us-east-2.compute.amazonaws.com:~/results.txt ubuntu@ec2-3-128-181-209.us-east-2.compute.amazonaws.com:~/fingerprint.txt ubuntu@ec2-3-128-181-209.us-east-2.compute.amazonaws.com:~/traffic_analysis.png aws/
+
+# Q15
+Answer: You still pay for the running t3.micro - if your t3.micro is still left on after the fact, you will end up paying money (about $12 for 1 month). 
+The instance was terminated. 
+
+git add 
+git commit "Add AWS analysis results & finish quiz"
+git push
+
 AI Disclosure: 
-I used AI to troubleshoot why my Modelfile was in Python and showing errors when I created the model, and I realized I needed to change the mode from Python to Plain text. 
-I also used AI to try to speed up the downloading of the granite model, which unfortunately did not help and required assistance of Danilo. 
+I used ChatGPT to try to look up ways to speed up the downloading of the granite model, which unfortunately did not help and required assistance of Danilo. 
+I used ChatGPT to troubleshoot why my Modelfile was in Python and showing errors when I created the model, and I realized I needed to change the mode from Python to Plain text. 
